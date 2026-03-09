@@ -55,7 +55,8 @@ RUN pip install "PyGObject>=3.42.2,<=3.46.0" \
     "urdf-parser-py==0.0.4" \
     "semver>=3,<4" \
     "sounddevice==0.5.1" \
-    "soundfile"
+    "soundfile" \
+    "opencv-python<5"
 
 # Set the entrypoint to bash for interactive use
 CMD ["/bin/bash"]
