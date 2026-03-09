@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     sudo \
     build-essential \
-    nodejs \
-    npm \
+    ca-certificates \
+    gnupg \
     libportaudio2 \
     libgirepository1.0-dev \
     libcairo2-dev \
@@ -26,6 +26,13 @@ RUN apt-get update && apt-get install -y \
     libgstreamer-plugins-good1.0-dev \
     zip \
     libgl1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js 20 (required by doc-builder's npm dependencies)
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
+    && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" > /etc/apt/sources.list.d/nodesource.list \
+    && apt-get update && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # Create and activate virtual environment
@@ -46,7 +53,9 @@ RUN pip install "PyGObject>=3.42.2,<=3.46.0" \
     "placo==0.9.14" \
     "rerun-sdk>=0.27.2" \
     "urdf-parser-py==0.0.4" \
-    "semver>=3,<4"
+    "semver>=3,<4" \
+    "sounddevice==0.5.1" \
+    "soundfile"
 
 # Set the entrypoint to bash for interactive use
 CMD ["/bin/bash"]
