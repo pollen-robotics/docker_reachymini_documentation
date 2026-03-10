@@ -56,7 +56,8 @@ RUN pip install "PyGObject>=3.42.2,<=3.46.0" \
     "semver>=3,<4" \
     "sounddevice==0.5.1" \
     "soundfile" \
-    "opencv-python<5"
+    "opencv-python<5" \
+    "cv2_enumerate_cameras>=1.2.1"
 
 # Set the entrypoint to bash for interactive use
 CMD ["/bin/bash"]

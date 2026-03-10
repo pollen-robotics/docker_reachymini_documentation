@@ -13,7 +13,7 @@
 #   ./test_ci_doc_build.sh [OPTIONS]
 #
 # Options:
-#   --branch BRANCH   reachy_mini branch to test (default: 859-add-gstreamer-to-pyprojectyml)
+#   --branch BRANCH   reachy_mini branch to test (default: main)
 #   --no-build        Skip Docker image rebuild, reuse existing local image
 #   --image IMAGE     Docker image name (default: reachymini_doc_test:latest)
 #
@@ -21,9 +21,9 @@
 set -euo pipefail
 
 # --- defaults ---
-REACHY_BRANCH="859-add-gstreamer-to-pyprojectyml"
+REACHY_BRANCH="main"
 BUILD_IMAGE=true
-IMAGE_NAME="reachymini_doc_test:latest"
+IMAGE_NAME="pollenrobotics/reachymini_documentation:1.0.2"
 
 # --- parse arguments ---
 while [[ $# -gt 0 ]]; do
