@@ -1,5 +1,7 @@
 # Reachy Mini Documentation Docker Image
 
+**Note:** The doc builder now used a [mock system](https://github.com/huggingface/doc-builder#building-without-installing-heavy-dependencies) to avoid loading actual dependencies. This project is not useful anymore.
+
 This Docker image is designed to be used by [doc-builder](https://github.com/huggingface/doc-builder) in the CI pipeline of the [Reachy Mini](https://github.com/pollen-robotics/reachy_mini) project.
 
 ## Purpose
